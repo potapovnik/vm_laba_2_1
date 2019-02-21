@@ -109,6 +109,13 @@ public class Rang {
     public int calculateMatrixTriangular() {
         int N = matrix.length;
         for (int i = 0; i < N - 1; i++) {
+            boolean flag=false;
+            for (int j=i;j<N-1 ; j++){
+                for (int k=i;k < N-1;k++){
+                    if (matrix[i][j]!=0){flag=true;}
+                }
+            }
+            if (flag==false){return 0;}
             int[] keepMax = searchMax(i, N);
             swapRow(keepMax[0], i, N);
             swapColumns(keepMax[1], i, N);
